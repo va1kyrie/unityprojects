@@ -1,0 +1,107 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf760
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid1\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid101\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid201\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid202\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid203\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li2160\lin2160 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid204\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li2880\lin2880 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\margl1440\margr1440\vieww21880\viewh14000\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs28 \cf0 Interactive Space\
+
+\b0\fs20 There are 
+\b 10
+\b0  active elements in this space\
+\
+1 Building 1\
+This is made from intersecting, semi transparent solids. They are transparent because their materials use the Transparent Mode of the Standard Shader and the alpha channel in their color has been set to something lower than 1.  At the center is a rotating dodecahedron.\
+\
+2 Water Tower\
+Is composed of the following elements:\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\uc0\u8259 	}A cylinder. It looks like lattice because its material uses the cutout mode of the Standard Shader.\
+{\listtext	\uc0\u8259 	}The Base is a sphere that has been scaled vertically. Its material is based on an image of water. It appears to be moving because of the attached script, which is sliding the material along the solid's surface in the specified direction.\
+{\listtext	\uc0\u8259 	}The helix has a simple rotation script attached.\
+{\listtext	\uc0\u8259 	}The falling water is a particle system.\
+{\listtext	\uc0\u8259 	}The splashes are also particles.\
+{\listtext	\uc0\u8259 	}There is also a spotlight pointing up at the main tank.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+3 The Spinning Torus \
+Is a torus tilted slightly off axis and given a simple rotation script.\
+\
+4 Enable Children\
+This is a cube, scaled to 5x5x5, with its renderer disabled, and its collider set to be a trigger. The script will enable any object or group of objects that are children of the cube. In this case it is lights.\
+\
+5 Scaling Sculpture\
+This is composed of six cubes which use a sine function to scale them along all three axis.  The parent object has a trigger collider and a script that will look at all the objects children, find those tagged "ScalingCubes" then access the scripts attached to them and sets the boolean "moving" to true when the trigger is entered.\
+\
+6. Moving Light\
+This is a point light set to draw a halo. The script uses InvokeRepeating to move the light incrementally.\
+\
+7 Bubbles\
+This is a particle system that uses the material bubble for the particles.\
+\
+8. RigidBodyCreator\
+The torus has a script that Instantiates a prefab, then attaches a rigidbody to it. When that happens the ball falls and rolls, usually to the pond where it submerges and is destroyed. Balls are produced using InvokeRepeating, but the command WaitForSeconds, in a coroutine varies the timing of the drops.\
+\
+9 Tic Tac Toe\
+The nine cubes have a script that uses a static variable to keep track of the number of clicks on the board. If the number is even, then, if the box is white it will turn blue. If it is white and the number of clicks is odd, it will turn red.\
+\
+10 RandomWalkTrigger\
+This is a cube with a trigger collider. When anything enters the trigger, it generates a collection of 200 randomly moving balls (a simple version of what we wrote on the second day of class).\
+\
+
+\b Note Canvas is holds UI text and, in this case, I put gameObjects in it because they have text attached
+\b0 .\
+\
+11 Distance Box\
+This cube uses InvokeRepeating to find the distance to the player object and display it every second.\
+\
+12 Teleporter\
+This is a trigger. If the player touches it, it will be immediately transported to the destination box, near the pond.\
+\
+13 Comet Trail Renderer\
+A point light is a child of an empty gameObject but offset in one axis. A rotateObj script is attached. Then that object is made a child of another empty gameObject, but offset and the second gameObject also has a rotateObj attached. Finally a trail renderer is attached.\
+\
+14 Comet Particle System\
+Like 13 but with 3 rotating gameObjects and a particle system attached to the point light.\
+\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls2\ilvl0\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+
+\b\fs28 UI Text
+\b0\fs20 \
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls3\ilvl0\cf0 {\listtext	\uc0\u8259 	}A Canvas is required for any UI element\
+{\listtext	\uc0\u8259 	}Render Mode:\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}Screen Space Overlay \
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}Canvas will Fill the screen automatically\
+{\listtext	\uc0\u8259 	}The UI will be shown over the whole scene\
+{\listtext	\uc0\u8259 	}All elements will be drawn on top of everything else\
+{\listtext	\uc0\u8259 	}In this mode the Rect Transform is un-editable (because its position is fixed in front of the screen)\
+{\listtext	\uc0\u8259 	}Option for Pixel Perfect (elements will be drawn to nearest pixel)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}Screen Space Camera\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}Like Screen Space Overlay but rendered by a particular camera in the scene\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}World Space\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}Puts the canvas in the world\
+{\listtext	\uc0\u8259 	}In can  be a child of a game object and scaled accordingly  (in meters)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls3\ilvl0\cf0 {\listtext	\uc0\u8259 	}Text\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}A canvas and an EventSystem are automatically added to the game when you create a UI text element\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}The text is positioned, scaled, etc. relative to the Canvas\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	} \
+}

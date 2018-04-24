@@ -1,0 +1,71 @@
+Interactive Space
+There are 10 active elements in this space
+
+1 Building 1
+This is made from intersecting, semi transparent solids. They are transparent because their materials use the Transparent Mode of the Standard Shader and the alpha channel in their color has been set to something lower than 1.  At the center is a rotating dodecahedron.
+
+2 Water Tower
+Is composed of the following elements:
+	⁃	A cylinder. It looks like lattice because its material uses the cutout mode of the Standard Shader.
+	⁃	The Base is a sphere that has been scaled vertically. Its material is based on an image of water. It appears to be moving because of the attached script, which is sliding the material along the solid's surface in the specified direction.
+	⁃	The helix has a simple rotation script attached.
+	⁃	The falling water is a particle system.
+	⁃	The splashes are also particles.
+	⁃	There is also a spotlight pointing up at the main tank.
+
+3 The Spinning Torus 
+Is a torus tilted slightly off axis and given a simple rotation script.
+
+4 Enable Children
+This is a cube, scaled to 5x5x5, with its renderer disabled, and its collider set to be a trigger. The script will enable any object or group of objects that are children of the cube. In this case it is lights.
+
+5 Scaling Sculpture
+This is composed of six cubes which use a sine function to scale them along all three axis.  The parent object has a trigger collider and a script that will look at all the objects children, find those tagged "ScalingCubes" then access the scripts attached to them and sets the boolean "moving" to true when the trigger is entered.
+
+6. Moving Light
+This is a point light set to draw a halo. The script uses InvokeRepeating to move the light incrementally.
+
+7 Bubbles
+This is a particle system that uses the material bubble for the particles.
+
+8. RigidBodyCreator
+The torus has a script that Instantiates a prefab, then attaches a rigidbody to it. When that happens the ball falls and rolls, usually to the pond where it submerges and is destroyed. Balls are produced using InvokeRepeating, but the command WaitForSeconds, in a coroutine varies the timing of the drops.
+
+9 Tic Tac Toe
+The nine cubes have a script that uses a static variable to keep track of the number of clicks on the board. If the number is even, then, if the box is white it will turn blue. If it is white and the number of clicks is odd, it will turn red.
+
+10 RandomWalkTrigger
+This is a cube with a trigger collider. When anything enters the trigger, it generates a collection of 200 randomly moving balls (a simple version of what we wrote on the second day of class).
+
+Note Canvas is holds UI text and, in this case, I put gameObjects in it because they have text attached.
+
+11 Distance Box
+This cube uses InvokeRepeating to find the distance to the player object and display it every second.
+
+12 Teleporter
+This is a trigger. If the player touches it, it will be immediately transported to the destination box, near the pond.
+
+13 Comet Trail Renderer
+A point light is a child of an empty gameObject but offset in one axis. A rotateObj script is attached. Then that object is made a child of another empty gameObject, but offset and the second gameObject also has a rotateObj attached. Finally a trail renderer is attached.
+
+14 Comet Particle System
+Like 13 but with 3 rotating gameObjects and a particle system attached to the point light.
+
+
+
+UI Text
+	⁃	A Canvas is required for any UI element
+	⁃	Render Mode:
+		⁃	Screen Space Overlay 
+		⁃	Canvas will Fill the screen automatically
+		⁃	The UI will be shown over the whole scene
+		⁃	All elements will be drawn on top of everything else
+		⁃	In this mode the Rect Transform is un-editable (because its position is fixed in front of the screen)
+	⁃	Screen Space Camera
+		⁃	Like Screen Space Overlay but rendered by a particular camera in the scene
+	⁃	World Space
+		⁃	Puts the canvas in the world
+		⁃	In can  be a child of a game object and scaled accordingly  (in meters)
+	⁃	Text
+		⁃	A canvas and an EventSystem are automatically added to the game when you create a UI text element
+		⁃	The text is positioned, scaled, etc. relative to the Canvas	 

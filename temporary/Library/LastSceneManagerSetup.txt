@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/4-16 Scenes and Hinges/Scene1.unity
+  isLoaded: 1
+  isActive: 1
